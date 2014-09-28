@@ -57,11 +57,18 @@ namespace LogNotifier
             set { cellProvider = value; }
         }
 
-        protected bool enabled;
+        protected bool enabled = true;
         public bool Enabled
         {
             get { return enabled; }
             set { enabled = value; }
+        }
+
+        protected bool stopNotifications = true;
+        public bool StopNotifications
+        {
+            get { return stopNotifications; }
+            set { stopNotifications = value; }
         }
     }
 }

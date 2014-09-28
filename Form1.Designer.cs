@@ -46,13 +46,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.tabPageSent = new System.Windows.Forms.TabPage();
             this.listViewSent = new System.Windows.Forms.ListView();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
-            this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
+            this.checkBoxStopNotifications = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
@@ -64,7 +65,7 @@
             // buttonLogfile
             // 
             this.buttonLogfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogfile.Location = new System.Drawing.Point(12, 162);
+            this.buttonLogfile.Location = new System.Drawing.Point(12, 183);
             this.buttonLogfile.Name = "buttonLogfile";
             this.buttonLogfile.Size = new System.Drawing.Size(313, 23);
             this.buttonLogfile.TabIndex = 0;
@@ -78,7 +79,7 @@
             this.textBoxFiltersInclude.Location = new System.Drawing.Point(12, 28);
             this.textBoxFiltersInclude.Multiline = true;
             this.textBoxFiltersInclude.Name = "textBoxFiltersInclude";
-            this.textBoxFiltersInclude.Size = new System.Drawing.Size(158, 121);
+            this.textBoxFiltersInclude.Size = new System.Drawing.Size(152, 136);
             this.textBoxFiltersInclude.TabIndex = 1;
             this.textBoxFiltersInclude.TextChanged += new System.EventHandler(this.textBoxFilters_TextChanged);
             // 
@@ -105,7 +106,7 @@
             // 
             this.groupBox1.Controls.Add(this.comboBoxService);
             this.groupBox1.Controls.Add(this.textBoxCell);
-            this.groupBox1.Location = new System.Drawing.Point(19, 124);
+            this.groupBox1.Location = new System.Drawing.Point(19, 149);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(301, 57);
             this.groupBox1.TabIndex = 5;
@@ -172,7 +173,7 @@
             this.textBoxFiltersExclude.Location = new System.Drawing.Point(182, 28);
             this.textBoxFiltersExclude.Multiline = true;
             this.textBoxFiltersExclude.Name = "textBoxFiltersExclude";
-            this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 121);
+            this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 136);
             this.textBoxFiltersExclude.TabIndex = 7;
             this.textBoxFiltersExclude.Text = "You auction,";
             this.textBoxFiltersExclude.TextChanged += new System.EventHandler(this.textBoxFiltersExclude_TextChanged);
@@ -185,7 +186,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(346, 220);
+            this.tabControl.Size = new System.Drawing.Size(346, 247);
             this.tabControl.TabIndex = 8;
             // 
             // tabPageFilters
@@ -198,7 +199,7 @@
             this.tabPageFilters.Location = new System.Drawing.Point(4, 22);
             this.tabPageFilters.Name = "tabPageFilters";
             this.tabPageFilters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFilters.Size = new System.Drawing.Size(338, 194);
+            this.tabPageFilters.Size = new System.Drawing.Size(338, 221);
             this.tabPageFilters.TabIndex = 0;
             this.tabPageFilters.Text = "Filters";
             this.tabPageFilters.UseVisualStyleBackColor = true;
@@ -228,13 +229,14 @@
             this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
             this.tabPageConfig.Name = "tabPageConfig";
             this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConfig.Size = new System.Drawing.Size(338, 194);
+            this.tabPageConfig.Size = new System.Drawing.Size(338, 221);
             this.tabPageConfig.TabIndex = 1;
             this.tabPageConfig.Text = "Config";
             this.tabPageConfig.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBoxStopNotifications);
             this.groupBox3.Controls.Add(this.checkBoxEnabled);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBoxPort);
@@ -246,10 +248,23 @@
             this.groupBox3.Controls.Add(this.textBoxServer);
             this.groupBox3.Location = new System.Drawing.Point(19, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(301, 112);
+            this.groupBox3.Size = new System.Drawing.Size(301, 137);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Email";
+            // 
+            // checkBoxEnabled
+            // 
+            this.checkBoxEnabled.AutoSize = true;
+            this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxEnabled.Checked = true;
+            this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxEnabled.Location = new System.Drawing.Point(207, 80);
+            this.checkBoxEnabled.Name = "checkBoxEnabled";
+            this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxEnabled.TabIndex = 8;
+            this.checkBoxEnabled.Text = "Enabled:  ";
+            this.checkBoxEnabled.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -291,7 +306,7 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(12, 235);
+            this.labelStatus.Location = new System.Drawing.Point(12, 262);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(40, 13);
             this.labelStatus.TabIndex = 9;
@@ -300,30 +315,28 @@
             // labelProcessed
             // 
             this.labelProcessed.AutoSize = true;
-            this.labelProcessed.Location = new System.Drawing.Point(291, 235);
+            this.labelProcessed.Location = new System.Drawing.Point(291, 262);
             this.labelProcessed.Name = "labelProcessed";
             this.labelProcessed.Size = new System.Drawing.Size(60, 13);
             this.labelProcessed.TabIndex = 10;
             this.labelProcessed.Text = "Processed:";
             // 
-            // checkBoxEnabled
+            // checkBoxStopNotifications
             // 
-            this.checkBoxEnabled.AutoSize = true;
-            this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxEnabled.Checked = true;
-            this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEnabled.Location = new System.Drawing.Point(207, 80);
-            this.checkBoxEnabled.Name = "checkBoxEnabled";
-            this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxEnabled.TabIndex = 8;
-            this.checkBoxEnabled.Text = "Enabled:  ";
-            this.checkBoxEnabled.UseVisualStyleBackColor = true;
+            this.checkBoxStopNotifications.AutoSize = true;
+            this.checkBoxStopNotifications.Location = new System.Drawing.Point(10, 108);
+            this.checkBoxStopNotifications.Name = "checkBoxStopNotifications";
+            this.checkBoxStopNotifications.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxStopNotifications.Size = new System.Drawing.Size(182, 17);
+            this.checkBoxStopNotifications.TabIndex = 9;
+            this.checkBoxStopNotifications.Text = "Stop notifications after first match";
+            this.checkBoxStopNotifications.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 255);
+            this.ClientSize = new System.Drawing.Size(370, 278);
             this.Controls.Add(this.labelProcessed);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.tabControl);
@@ -373,6 +386,7 @@
         private System.Windows.Forms.Label labelProcessed;
         private System.Windows.Forms.ListView listViewSent;
         private System.Windows.Forms.CheckBox checkBoxEnabled;
+        private System.Windows.Forms.CheckBox checkBoxStopNotifications;
 
     }
 }

@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Xml.Serialization;
 using System.Timers;
+using System.Diagnostics;
 
 namespace LogNotifier
 {
@@ -83,6 +84,7 @@ namespace LogNotifier
             listViewSent.View = View.Details;
 
             checkBoxEnabled.Checked = true;
+            checkBoxStopNotifications.Checked = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -168,7 +170,7 @@ namespace LogNotifier
                         s = sr.ReadLine();
                         if (s != null)
                         {
-                            Console.WriteLine(s);
+                            //Debug.WriteLine(s);
                             
                             foreach (string search in searchLinesInclude)
                             {
@@ -179,10 +181,8 @@ namespace LogNotifier
                                         SetProcessed(++m_processed, Color.Blue, Color.White);
                                         m_timer.Enabled = true;
                                     }
-                                    else
-                                    {
-                                        break;
-                                    }
+
+                                    break;
                                 }
                             }
                         }
@@ -195,7 +195,7 @@ namespace LogNotifier
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Debug.WriteLine(e.Message);
                 SetStatus("Error processing file");
             }
 
@@ -205,11 +205,13 @@ namespace LogNotifier
 
         public bool SendEmail(string textSubject, string textMessage)
         {
-            Console.WriteLine("Sending email:" + textMessage);
+            Debug.WriteLine("Sending email:" + textMessage);
             string address = string.Empty;
             string fromPassword = string.Empty;
             string host = string.Empty;
             MailAddress fromAddress = null;
+            bool enabled = true;
+            bool stopNotifications = true;
             bool ret = true;
             int port = 0;
 
@@ -221,6 +223,8 @@ namespace LogNotifier
                 fromPassword = textBoxPass.Text;
                 port = Convert.ToInt16(textBoxPort.Text);
                 host = textBoxServer.Text;
+                enabled = checkBoxEnabled.Checked;
+                stopNotifications = checkBoxStopNotifications.Checked;
             });
 
             var toAddress = new MailAddress(address, address);
@@ -243,9 +247,14 @@ namespace LogNotifier
 
             try
             {
-                if (checkBoxEnabled.Checked)
+                if (enabled)
                 {
                     smtp.Send(message);
+
+                    if (stopNotifications)
+                    {
+                        ShutdownThread();
+                    }
                 }
                 
                 item.SubItems.Add(textSubject);
@@ -253,7 +262,7 @@ namespace LogNotifier
             }
             catch (System.Net.Mail.SmtpException e)
             {
-                Console.WriteLine(e.Message);
+                Debug.WriteLine(e.Message);
                 ShutdownThread("Error sending message", Color.Maroon, Color.White);
                 item.SubItems.Add("Error sending message");
                 item.SubItems.Add(e.Message);
@@ -368,6 +377,7 @@ namespace LogNotifier
             comboBoxService.SelectedItem = dataSet.CellProvider;
 
             checkBoxEnabled.Checked = dataSet.Enabled;
+            checkBoxStopNotifications.Checked = dataSet.StopNotifications;
         }
 
         LogNotifierDataSet GetConfigData()
@@ -385,6 +395,7 @@ namespace LogNotifier
             dataSet.CellProvider = comboBoxService.SelectedItem.ToString();
 
             dataSet.Enabled = checkBoxEnabled.Checked;
+            dataSet.StopNotifications = checkBoxStopNotifications.Checked;
 
             return dataSet;
         }
