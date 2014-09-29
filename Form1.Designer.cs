@@ -46,7 +46,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.tabPageSent = new System.Windows.Forms.TabPage();
@@ -54,12 +53,15 @@
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
             this.checkBoxStopNotifications = new System.Windows.Forms.CheckBox();
+            this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
             this.tabPageConfig.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPageSent.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogfile
@@ -88,7 +90,7 @@
             this.comboBoxService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxService.FormattingEnabled = true;
-            this.comboBoxService.Location = new System.Drawing.Point(136, 22);
+            this.comboBoxService.Location = new System.Drawing.Point(143, 21);
             this.comboBoxService.Name = "comboBoxService";
             this.comboBoxService.Size = new System.Drawing.Size(145, 21);
             this.comboBoxService.TabIndex = 2;
@@ -96,7 +98,7 @@
             // textBoxCell
             // 
             this.textBoxCell.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCell.Location = new System.Drawing.Point(17, 22);
+            this.textBoxCell.Location = new System.Drawing.Point(23, 22);
             this.textBoxCell.Name = "textBoxCell";
             this.textBoxCell.Size = new System.Drawing.Size(93, 20);
             this.textBoxCell.TabIndex = 4;
@@ -106,9 +108,9 @@
             // 
             this.groupBox1.Controls.Add(this.comboBoxService);
             this.groupBox1.Controls.Add(this.textBoxCell);
-            this.groupBox1.Location = new System.Drawing.Point(19, 149);
+            this.groupBox1.Location = new System.Drawing.Point(19, 159);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 57);
+            this.groupBox1.Size = new System.Drawing.Size(301, 56);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "10-Digit Cell Number and Provider";
@@ -116,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 25);
+            this.label3.Location = new System.Drawing.Point(18, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 5;
@@ -125,7 +127,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 81);
+            this.label2.Location = new System.Drawing.Point(18, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 4;
@@ -134,7 +136,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 53);
+            this.label1.Location = new System.Drawing.Point(17, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 3;
@@ -143,7 +145,7 @@
             // textBoxServer
             // 
             this.textBoxServer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxServer.Location = new System.Drawing.Point(61, 50);
+            this.textBoxServer.Location = new System.Drawing.Point(67, 44);
             this.textBoxServer.Name = "textBoxServer";
             this.textBoxServer.Size = new System.Drawing.Size(128, 20);
             this.textBoxServer.TabIndex = 2;
@@ -152,7 +154,7 @@
             // textBoxPass
             // 
             this.textBoxPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPass.Location = new System.Drawing.Point(61, 78);
+            this.textBoxPass.Location = new System.Drawing.Point(68, 72);
             this.textBoxPass.Name = "textBoxPass";
             this.textBoxPass.PasswordChar = '*';
             this.textBoxPass.Size = new System.Drawing.Size(128, 20);
@@ -161,7 +163,7 @@
             // textBoxAccount
             // 
             this.textBoxAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxAccount.Location = new System.Drawing.Point(61, 22);
+            this.textBoxAccount.Location = new System.Drawing.Point(68, 16);
             this.textBoxAccount.Name = "textBoxAccount";
             this.textBoxAccount.Size = new System.Drawing.Size(220, 20);
             this.textBoxAccount.TabIndex = 0;
@@ -224,6 +226,7 @@
             // 
             // tabPageConfig
             // 
+            this.tabPageConfig.Controls.Add(this.groupBox2);
             this.tabPageConfig.Controls.Add(this.groupBox3);
             this.tabPageConfig.Controls.Add(this.groupBox1);
             this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
@@ -236,8 +239,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBoxStopNotifications);
-            this.groupBox3.Controls.Add(this.checkBoxEnabled);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBoxPort);
             this.groupBox3.Controls.Add(this.label3);
@@ -246,30 +247,17 @@
             this.groupBox3.Controls.Add(this.textBoxPass);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.textBoxServer);
-            this.groupBox3.Location = new System.Drawing.Point(19, 6);
+            this.groupBox3.Location = new System.Drawing.Point(19, 54);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(301, 137);
+            this.groupBox3.Size = new System.Drawing.Size(301, 100);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Email";
             // 
-            // checkBoxEnabled
-            // 
-            this.checkBoxEnabled.AutoSize = true;
-            this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxEnabled.Checked = true;
-            this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEnabled.Location = new System.Drawing.Point(207, 80);
-            this.checkBoxEnabled.Name = "checkBoxEnabled";
-            this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxEnabled.TabIndex = 8;
-            this.checkBoxEnabled.Text = "Enabled:  ";
-            this.checkBoxEnabled.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(208, 53);
+            this.label4.Location = new System.Drawing.Point(214, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 13);
             this.label4.TabIndex = 7;
@@ -278,7 +266,7 @@
             // textBoxPort
             // 
             this.textBoxPort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxPort.Location = new System.Drawing.Point(237, 50);
+            this.textBoxPort.Location = new System.Drawing.Point(243, 44);
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(44, 20);
             this.textBoxPort.TabIndex = 6;
@@ -289,7 +277,7 @@
             this.tabPageSent.Controls.Add(this.listViewSent);
             this.tabPageSent.Location = new System.Drawing.Point(4, 22);
             this.tabPageSent.Name = "tabPageSent";
-            this.tabPageSent.Size = new System.Drawing.Size(338, 194);
+            this.tabPageSent.Size = new System.Drawing.Size(338, 221);
             this.tabPageSent.TabIndex = 2;
             this.tabPageSent.Text = "Sent";
             this.tabPageSent.UseVisualStyleBackColor = true;
@@ -299,7 +287,7 @@
             this.listViewSent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewSent.Location = new System.Drawing.Point(18, 20);
             this.listViewSent.Name = "listViewSent";
-            this.listViewSent.Size = new System.Drawing.Size(305, 159);
+            this.listViewSent.Size = new System.Drawing.Size(305, 186);
             this.listViewSent.TabIndex = 0;
             this.listViewSent.UseCompatibleStateImageBehavior = false;
             // 
@@ -315,7 +303,7 @@
             // labelProcessed
             // 
             this.labelProcessed.AutoSize = true;
-            this.labelProcessed.Location = new System.Drawing.Point(291, 262);
+            this.labelProcessed.Location = new System.Drawing.Point(287, 262);
             this.labelProcessed.Name = "labelProcessed";
             this.labelProcessed.Size = new System.Drawing.Size(60, 13);
             this.labelProcessed.TabIndex = 10;
@@ -324,13 +312,37 @@
             // checkBoxStopNotifications
             // 
             this.checkBoxStopNotifications.AutoSize = true;
-            this.checkBoxStopNotifications.Location = new System.Drawing.Point(10, 108);
+            this.checkBoxStopNotifications.Location = new System.Drawing.Point(164, 16);
             this.checkBoxStopNotifications.Name = "checkBoxStopNotifications";
             this.checkBoxStopNotifications.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBoxStopNotifications.Size = new System.Drawing.Size(182, 17);
+            this.checkBoxStopNotifications.Size = new System.Drawing.Size(123, 17);
             this.checkBoxStopNotifications.TabIndex = 9;
-            this.checkBoxStopNotifications.Text = "Stop notifications after first match";
+            this.checkBoxStopNotifications.Text = "Stop after first match";
             this.checkBoxStopNotifications.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxEnabled
+            // 
+            this.checkBoxEnabled.AutoSize = true;
+            this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxEnabled.Checked = true;
+            this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxEnabled.Location = new System.Drawing.Point(17, 16);
+            this.checkBoxEnabled.Name = "checkBoxEnabled";
+            this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxEnabled.TabIndex = 8;
+            this.checkBoxEnabled.Text = "Enabled:  ";
+            this.checkBoxEnabled.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBoxEnabled);
+            this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
+            this.groupBox2.Location = new System.Drawing.Point(19, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(301, 42);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Notifications";
             // 
             // Form1
             // 
@@ -354,6 +366,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPageSent.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +399,7 @@
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label labelProcessed;
         private System.Windows.Forms.ListView listViewSent;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBoxEnabled;
         private System.Windows.Forms.CheckBox checkBoxStopNotifications;
 
