@@ -115,6 +115,28 @@ namespace LogNotifier
             });
         }
 
+        private void SetTitle(string fileName = default(string))
+        {
+            string title = "LogNotifier";
+            if (m_processed > 0)
+            {
+                title += "(" + m_processed + ")";
+            }
+
+            this.Invoke((MethodInvoker)delegate()
+            {
+                Text = title + (!string.IsNullOrEmpty(fileName) ? (" - " + fileName) : String.Empty);
+            });
+        }
+
+        private void SetButtonText(string text)
+        {
+            this.Invoke((MethodInvoker)delegate()
+            {
+                buttonLogfile.Text = text;
+            });
+        }
+
         private bool CheckTextBox(ref TextBox textBox, bool numericOnly = false, int requiredLength = 0)
         {
             if ((textBox.Text == string.Empty) ||
@@ -178,7 +200,9 @@ namespace LogNotifier
                                 {
                                     if (SendEmail(search, s))
                                     {
-                                        SetProcessed(++m_processed, Color.Blue, Color.White);
+                                        m_processed++;
+                                        SetProcessed(m_processed, Color.Blue, Color.White);
+                                        SetTitle(System.IO.Path.GetFileName(m_logfileName));
                                         m_timer.Enabled = true;
                                     }
 
@@ -304,12 +328,8 @@ namespace LogNotifier
             m_thread = null;
 
             SetStatus(status, backColor, textColor);
-
-            this.Invoke((MethodInvoker)delegate()
-            {
-                buttonLogfile.Text = "<Select logfile>";
-                Text = "LogNotifier";
-            });
+            SetTitle();
+            SetButtonText("<Select logfile>");
         }
 
         private void buttonLogfile_Click(object sender, EventArgs e)
@@ -328,9 +348,10 @@ namespace LogNotifier
 
                 m_thread = new Thread(new ThreadStart(StartWatcher));
                 m_thread.Start();
-                buttonLogfile.Text = "<Click to Stop>";
+                
                 SetStatus("Running", Color.YellowGreen, Color.Black);
-                Text = "LogNotifier - " + System.IO.Path.GetFileName(m_logfileName);
+                SetTitle(System.IO.Path.GetFileName(m_logfileName));
+                SetButtonText("<Click to Stop>");
             }
             else
             {
