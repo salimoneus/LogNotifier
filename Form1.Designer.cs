@@ -45,6 +45,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
+            this.checkBoxStopNotifications = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPort = new System.Windows.Forms.TextBox();
@@ -52,16 +55,13 @@
             this.listViewSent = new System.Windows.Forms.ListView();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
-            this.checkBoxStopNotifications = new System.Windows.Forms.CheckBox();
-            this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
             this.tabPageConfig.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPageSent.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogfile
@@ -177,7 +177,6 @@
             this.textBoxFiltersExclude.Name = "textBoxFiltersExclude";
             this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 136);
             this.textBoxFiltersExclude.TabIndex = 7;
-            this.textBoxFiltersExclude.Text = "You auction,";
             this.textBoxFiltersExclude.TextChanged += new System.EventHandler(this.textBoxFiltersExclude_TextChanged);
             // 
             // tabControl
@@ -236,6 +235,41 @@
             this.tabPageConfig.TabIndex = 1;
             this.tabPageConfig.Text = "Config";
             this.tabPageConfig.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBoxEnabled);
+            this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
+            this.groupBox2.Location = new System.Drawing.Point(19, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(301, 42);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Notifications";
+            // 
+            // checkBoxEnabled
+            // 
+            this.checkBoxEnabled.AutoSize = true;
+            this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxEnabled.Checked = true;
+            this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxEnabled.Location = new System.Drawing.Point(17, 16);
+            this.checkBoxEnabled.Name = "checkBoxEnabled";
+            this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxEnabled.TabIndex = 8;
+            this.checkBoxEnabled.Text = "Enabled:  ";
+            this.checkBoxEnabled.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxStopNotifications
+            // 
+            this.checkBoxStopNotifications.AutoSize = true;
+            this.checkBoxStopNotifications.Location = new System.Drawing.Point(164, 16);
+            this.checkBoxStopNotifications.Name = "checkBoxStopNotifications";
+            this.checkBoxStopNotifications.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxStopNotifications.Size = new System.Drawing.Size(123, 17);
+            this.checkBoxStopNotifications.TabIndex = 9;
+            this.checkBoxStopNotifications.Text = "Stop after first match";
+            this.checkBoxStopNotifications.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -309,41 +343,6 @@
             this.labelProcessed.TabIndex = 10;
             this.labelProcessed.Text = "Processed:";
             // 
-            // checkBoxStopNotifications
-            // 
-            this.checkBoxStopNotifications.AutoSize = true;
-            this.checkBoxStopNotifications.Location = new System.Drawing.Point(164, 16);
-            this.checkBoxStopNotifications.Name = "checkBoxStopNotifications";
-            this.checkBoxStopNotifications.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBoxStopNotifications.Size = new System.Drawing.Size(123, 17);
-            this.checkBoxStopNotifications.TabIndex = 9;
-            this.checkBoxStopNotifications.Text = "Stop after first match";
-            this.checkBoxStopNotifications.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxEnabled
-            // 
-            this.checkBoxEnabled.AutoSize = true;
-            this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxEnabled.Checked = true;
-            this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEnabled.Location = new System.Drawing.Point(17, 16);
-            this.checkBoxEnabled.Name = "checkBoxEnabled";
-            this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxEnabled.TabIndex = 8;
-            this.checkBoxEnabled.Text = "Enabled:  ";
-            this.checkBoxEnabled.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBoxEnabled);
-            this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
-            this.groupBox2.Location = new System.Drawing.Point(19, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 42);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Notifications";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,11 +362,11 @@
             this.tabPageFilters.ResumeLayout(false);
             this.tabPageFilters.PerformLayout();
             this.tabPageConfig.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabPageSent.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
