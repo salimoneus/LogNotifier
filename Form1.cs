@@ -69,6 +69,12 @@ namespace LogNotifier
                 Width = 60
             };
             listViewSent.Columns.Add(dateHeader);
+            ColumnHeader sentHeader = new ColumnHeader
+            {
+                Text = "Sent",
+                Width = 40
+            };
+            listViewSent.Columns.Add(sentHeader);
             ColumnHeader matchHeader = new ColumnHeader
             {
                 Text = "Subject",
@@ -90,16 +96,16 @@ namespace LogNotifier
         private void Form1_Load(object sender, EventArgs e)
         {
             SetStatus("Stopped");
-            SetProcessed(m_processed);
+            SetProcessed();
 
             ReadConfigData();
         }
 
-        private void SetProcessed(int val, Color? colorBack = null, Color? colorText = null)
+        private void SetProcessed(Color? colorBack = null, Color? colorText = null)
         {
             this.Invoke((MethodInvoker)delegate()
             {
-                labelProcessed.Text = "Processed: " + val.ToString();
+                labelProcessed.Text = "Processed: " + m_processed.ToString();
                 labelProcessed.BackColor = colorBack.HasValue ? colorBack.Value : SystemColors.Control;
                 labelProcessed.ForeColor = colorText.HasValue ? colorText.Value : SystemColors.ControlText;
             });
@@ -201,7 +207,7 @@ namespace LogNotifier
                                     if (SendEmail(search, s))
                                     {
                                         m_processed++;
-                                        SetProcessed(m_processed, Color.Blue, Color.White);
+                                        SetProcessed(Color.Blue, Color.White);
                                         SetTitle(System.IO.Path.GetFileName(m_logfileName));
                                         m_timer.Enabled = true;
                                     }
@@ -279,8 +285,14 @@ namespace LogNotifier
                     {
                         ShutdownThread();
                     }
+
+                    item.SubItems.Add("Yes");
                 }
-                
+                else
+                {
+                    item.SubItems.Add("No");
+                }
+
                 item.SubItems.Add(textSubject);
                 item.SubItems.Add(textMessage);
             }
@@ -288,6 +300,7 @@ namespace LogNotifier
             {
                 Debug.WriteLine(e.Message);
                 ShutdownThread("Error sending message", Color.Maroon, Color.White);
+                item.SubItems.Add("Err");
                 item.SubItems.Add("Error sending message");
                 item.SubItems.Add(e.Message);
                 ret = false;
@@ -466,6 +479,22 @@ namespace LogNotifier
             catch (Exception e)
             {
                 System.Diagnostics.Trace.WriteLine(e.ToString());
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            listViewSent.Items.Clear();
+            m_processed=0;
+            SetProcessed();
+
+            if (m_bRun)
+            {
+                SetTitle(System.IO.Path.GetFileName(m_logfileName));
+            }
+            else
+            {
+                SetTitle();
             }
         }
     }

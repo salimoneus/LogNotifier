@@ -55,6 +55,7 @@
             this.listViewSent = new System.Windows.Forms.ListView();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
@@ -81,7 +82,7 @@
             this.textBoxFiltersInclude.Location = new System.Drawing.Point(12, 28);
             this.textBoxFiltersInclude.Multiline = true;
             this.textBoxFiltersInclude.Name = "textBoxFiltersInclude";
-            this.textBoxFiltersInclude.Size = new System.Drawing.Size(152, 136);
+            this.textBoxFiltersInclude.Size = new System.Drawing.Size(152, 140);
             this.textBoxFiltersInclude.TabIndex = 1;
             this.textBoxFiltersInclude.TextChanged += new System.EventHandler(this.textBoxFilters_TextChanged);
             // 
@@ -175,7 +176,7 @@
             this.textBoxFiltersExclude.Location = new System.Drawing.Point(182, 28);
             this.textBoxFiltersExclude.Multiline = true;
             this.textBoxFiltersExclude.Name = "textBoxFiltersExclude";
-            this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 136);
+            this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 140);
             this.textBoxFiltersExclude.TabIndex = 7;
             this.textBoxFiltersExclude.TextChanged += new System.EventHandler(this.textBoxFiltersExclude_TextChanged);
             // 
@@ -308,12 +309,13 @@
             // 
             // tabPageSent
             // 
+            this.tabPageSent.Controls.Add(this.buttonClear);
             this.tabPageSent.Controls.Add(this.listViewSent);
             this.tabPageSent.Location = new System.Drawing.Point(4, 22);
             this.tabPageSent.Name = "tabPageSent";
             this.tabPageSent.Size = new System.Drawing.Size(338, 221);
             this.tabPageSent.TabIndex = 2;
-            this.tabPageSent.Text = "Sent";
+            this.tabPageSent.Text = "Processed";
             this.tabPageSent.UseVisualStyleBackColor = true;
             // 
             // listViewSent
@@ -321,7 +323,7 @@
             this.listViewSent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewSent.Location = new System.Drawing.Point(18, 20);
             this.listViewSent.Name = "listViewSent";
-            this.listViewSent.Size = new System.Drawing.Size(305, 186);
+            this.listViewSent.Size = new System.Drawing.Size(305, 145);
             this.listViewSent.TabIndex = 0;
             this.listViewSent.UseCompatibleStateImageBehavior = false;
             // 
@@ -342,6 +344,17 @@
             this.labelProcessed.Size = new System.Drawing.Size(60, 13);
             this.labelProcessed.TabIndex = 10;
             this.labelProcessed.Text = "Processed:";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Location = new System.Drawing.Point(18, 185);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(305, 23);
+            this.buttonClear.TabIndex = 11;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // Form1
             // 
@@ -402,6 +415,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox checkBoxEnabled;
         private System.Windows.Forms.CheckBox checkBoxStopNotifications;
+        private System.Windows.Forms.Button buttonClear;
 
     }
 }
