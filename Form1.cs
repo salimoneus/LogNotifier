@@ -309,6 +309,10 @@ namespace LogNotifier
             this.Invoke((MethodInvoker)delegate()
             {
                 listViewSent.Items.Add(item);
+                listViewSent.Items[listViewSent.Items.Count - 1].EnsureVisible();
+
+                this.WindowState = FormWindowState.Normal;
+                this.Activate();
             });
 
             return ret;
