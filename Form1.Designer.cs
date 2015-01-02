@@ -46,16 +46,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxPlaySound = new System.Windows.Forms.CheckBox();
             this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxStopNotifications = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.tabPageSent = new System.Windows.Forms.TabPage();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.listViewSent = new System.Windows.Forms.ListView();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
-            this.buttonClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
@@ -239,6 +240,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBoxPlaySound);
             this.groupBox2.Controls.Add(this.checkBoxEnabled);
             this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
             this.groupBox2.Location = new System.Drawing.Point(19, 7);
@@ -247,6 +249,17 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Notifications";
+            // 
+            // checkBoxPlaySound
+            // 
+            this.checkBoxPlaySound.AutoSize = true;
+            this.checkBoxPlaySound.Location = new System.Drawing.Point(107, 16);
+            this.checkBoxPlaySound.Name = "checkBoxPlaySound";
+            this.checkBoxPlaySound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBoxPlaySound.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxPlaySound.TabIndex = 10;
+            this.checkBoxPlaySound.Text = "Play Sound";
+            this.checkBoxPlaySound.UseVisualStyleBackColor = true;
             // 
             // checkBoxEnabled
             // 
@@ -264,12 +277,12 @@
             // checkBoxStopNotifications
             // 
             this.checkBoxStopNotifications.AutoSize = true;
-            this.checkBoxStopNotifications.Location = new System.Drawing.Point(164, 16);
+            this.checkBoxStopNotifications.Location = new System.Drawing.Point(196, 16);
             this.checkBoxStopNotifications.Name = "checkBoxStopNotifications";
             this.checkBoxStopNotifications.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBoxStopNotifications.Size = new System.Drawing.Size(123, 17);
+            this.checkBoxStopNotifications.Size = new System.Drawing.Size(91, 17);
             this.checkBoxStopNotifications.TabIndex = 9;
-            this.checkBoxStopNotifications.Text = "Stop after first match";
+            this.checkBoxStopNotifications.Text = "Stop after first";
             this.checkBoxStopNotifications.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -318,6 +331,17 @@
             this.tabPageSent.Text = "Processed";
             this.tabPageSent.UseVisualStyleBackColor = true;
             // 
+            // buttonClear
+            // 
+            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClear.Location = new System.Drawing.Point(18, 185);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(305, 23);
+            this.buttonClear.TabIndex = 11;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // listViewSent
             // 
             this.listViewSent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -344,17 +368,6 @@
             this.labelProcessed.Size = new System.Drawing.Size(60, 13);
             this.labelProcessed.TabIndex = 10;
             this.labelProcessed.Text = "Processed:";
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClear.Location = new System.Drawing.Point(18, 185);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(305, 23);
-            this.buttonClear.TabIndex = 11;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = true;
-            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // Form1
             // 
@@ -416,6 +429,7 @@
         private System.Windows.Forms.CheckBox checkBoxEnabled;
         private System.Windows.Forms.CheckBox checkBoxStopNotifications;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.CheckBox checkBoxPlaySound;
 
     }
 }

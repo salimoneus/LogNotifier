@@ -70,5 +70,12 @@ namespace LogNotifier
             get { return stopNotifications; }
             set { stopNotifications = value; }
         }
+
+        protected bool playSound = false;
+        public bool Playsound
+        {
+            get { return playSound; }
+            set { playSound = value; }
+        }
     }
 }

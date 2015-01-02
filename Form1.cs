@@ -233,6 +233,20 @@ namespace LogNotifier
             m_finishedEvent.Set();
         }
 
+        private void PlaySound()
+        {
+            try
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+                player.SoundLocation = "alert.wav";
+                player.Play();
+            }
+            catch(Exception)
+            {
+                checkBoxPlaySound.Checked = false;
+            }
+        }
+
         public bool SendEmail(string textSubject, string textMessage)
         {
             Debug.WriteLine("Sending email:" + textMessage);
@@ -310,6 +324,11 @@ namespace LogNotifier
             {
                 listViewSent.Items.Add(item);
                 listViewSent.Items[listViewSent.Items.Count - 1].EnsureVisible();
+
+                if (checkBoxPlaySound.Checked)
+                {
+                    PlaySound();
+                }
 
                 this.WindowState = FormWindowState.Normal;
                 this.Activate();
@@ -416,6 +435,7 @@ namespace LogNotifier
 
             checkBoxEnabled.Checked = dataSet.Enabled;
             checkBoxStopNotifications.Checked = dataSet.StopNotifications;
+            checkBoxPlaySound.Checked = dataSet.Playsound;
         }
 
         LogNotifierDataSet GetConfigData()
@@ -434,6 +454,7 @@ namespace LogNotifier
 
             dataSet.Enabled = checkBoxEnabled.Checked;
             dataSet.StopNotifications = checkBoxStopNotifications.Checked;
+            dataSet.Playsound = checkBoxPlaySound.Checked;
 
             return dataSet;
         }
