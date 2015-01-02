@@ -57,6 +57,7 @@
             this.listViewSent = new System.Windows.Forms.ListView();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
@@ -227,9 +228,11 @@
             // 
             // tabPageConfig
             // 
+            this.tabPageConfig.Controls.Add(this.checkBoxPlaySound);
             this.tabPageConfig.Controls.Add(this.groupBox2);
             this.tabPageConfig.Controls.Add(this.groupBox3);
             this.tabPageConfig.Controls.Add(this.groupBox1);
+            this.tabPageConfig.Controls.Add(this.groupBox4);
             this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
             this.tabPageConfig.Name = "tabPageConfig";
             this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3);
@@ -240,25 +243,24 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.checkBoxPlaySound);
             this.groupBox2.Controls.Add(this.checkBoxEnabled);
             this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
             this.groupBox2.Location = new System.Drawing.Point(19, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 42);
+            this.groupBox2.Size = new System.Drawing.Size(203, 42);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Notifications";
+            this.groupBox2.Text = "Texts";
             // 
             // checkBoxPlaySound
             // 
             this.checkBoxPlaySound.AutoSize = true;
-            this.checkBoxPlaySound.Location = new System.Drawing.Point(107, 16);
+            this.checkBoxPlaySound.Location = new System.Drawing.Point(242, 23);
             this.checkBoxPlaySound.Name = "checkBoxPlaySound";
             this.checkBoxPlaySound.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBoxPlaySound.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxPlaySound.Size = new System.Drawing.Size(65, 17);
             this.checkBoxPlaySound.TabIndex = 10;
-            this.checkBoxPlaySound.Text = "Play Sound";
+            this.checkBoxPlaySound.Text = "Enabled";
             this.checkBoxPlaySound.UseVisualStyleBackColor = true;
             // 
             // checkBoxEnabled
@@ -267,7 +269,7 @@
             this.checkBoxEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxEnabled.Checked = true;
             this.checkBoxEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEnabled.Location = new System.Drawing.Point(17, 16);
+            this.checkBoxEnabled.Location = new System.Drawing.Point(14, 16);
             this.checkBoxEnabled.Name = "checkBoxEnabled";
             this.checkBoxEnabled.Size = new System.Drawing.Size(74, 17);
             this.checkBoxEnabled.TabIndex = 8;
@@ -277,7 +279,7 @@
             // checkBoxStopNotifications
             // 
             this.checkBoxStopNotifications.AutoSize = true;
-            this.checkBoxStopNotifications.Location = new System.Drawing.Point(196, 16);
+            this.checkBoxStopNotifications.Location = new System.Drawing.Point(99, 16);
             this.checkBoxStopNotifications.Name = "checkBoxStopNotifications";
             this.checkBoxStopNotifications.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBoxStopNotifications.Size = new System.Drawing.Size(91, 17);
@@ -369,6 +371,15 @@
             this.labelProcessed.TabIndex = 10;
             this.labelProcessed.Text = "Processed:";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(236, 7);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(84, 42);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Sound";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +400,7 @@
             this.tabPageFilters.ResumeLayout(false);
             this.tabPageFilters.PerformLayout();
             this.tabPageConfig.ResumeLayout(false);
+            this.tabPageConfig.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -430,6 +442,7 @@
         private System.Windows.Forms.CheckBox checkBoxStopNotifications;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.CheckBox checkBoxPlaySound;
+        private System.Windows.Forms.GroupBox groupBox4;
 
     }
 }
