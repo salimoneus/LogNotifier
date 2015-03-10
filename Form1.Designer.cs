@@ -55,12 +55,12 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxPort = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabPageSent = new System.Windows.Forms.TabPage();
             this.buttonClear = new System.Windows.Forms.Button();
             this.listViewSent = new System.Windows.Forms.ListView();
             this.labelStatus = new System.Windows.Forms.Label();
             this.labelProcessed = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageFilters.SuspendLayout();
@@ -339,7 +339,7 @@
             this.groupBox3.Size = new System.Drawing.Size(301, 100);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Outgoing Email";
+            this.groupBox3.Text = "Outgoing SMTP";
             // 
             // label4
             // 
@@ -358,6 +358,15 @@
             this.textBoxPort.Size = new System.Drawing.Size(44, 20);
             this.textBoxPort.TabIndex = 6;
             this.textBoxPort.Text = "587";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(236, 7);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(84, 42);
+            this.groupBox4.TabIndex = 11;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Sound";
             // 
             // tabPageSent
             // 
@@ -407,15 +416,6 @@
             this.labelProcessed.Size = new System.Drawing.Size(60, 13);
             this.labelProcessed.TabIndex = 10;
             this.labelProcessed.Text = "Processed:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(236, 7);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(84, 42);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Sound";
             // 
             // Form1
             // 
