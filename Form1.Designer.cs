@@ -33,20 +33,23 @@
             this.comboBoxService = new System.Windows.Forms.ComboBox();
             this.textBoxCell = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxSendToEmail = new System.Windows.Forms.TextBox();
+            this.radioButtonEmail = new System.Windows.Forms.RadioButton();
+            this.radioButtonText = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxServer = new System.Windows.Forms.TextBox();
             this.textBoxPass = new System.Windows.Forms.TextBox();
-            this.textBoxAccount = new System.Windows.Forms.TextBox();
+            this.textBoxSMTPEmail = new System.Windows.Forms.TextBox();
             this.textBoxFiltersExclude = new System.Windows.Forms.TextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageFilters = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPageConfig = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBoxPlaySound = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBoxEnabled = new System.Windows.Forms.CheckBox();
             this.checkBoxStopNotifications = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -70,7 +73,7 @@
             // buttonLogfile
             // 
             this.buttonLogfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogfile.Location = new System.Drawing.Point(12, 183);
+            this.buttonLogfile.Location = new System.Drawing.Point(12, 222);
             this.buttonLogfile.Name = "buttonLogfile";
             this.buttonLogfile.Size = new System.Drawing.Size(313, 23);
             this.buttonLogfile.TabIndex = 0;
@@ -84,7 +87,7 @@
             this.textBoxFiltersInclude.Location = new System.Drawing.Point(12, 28);
             this.textBoxFiltersInclude.Multiline = true;
             this.textBoxFiltersInclude.Name = "textBoxFiltersInclude";
-            this.textBoxFiltersInclude.Size = new System.Drawing.Size(152, 140);
+            this.textBoxFiltersInclude.Size = new System.Drawing.Size(152, 174);
             this.textBoxFiltersInclude.TabIndex = 1;
             this.textBoxFiltersInclude.TextChanged += new System.EventHandler(this.textBoxFilters_TextChanged);
             // 
@@ -93,30 +96,64 @@
             this.comboBoxService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxService.FormattingEnabled = true;
-            this.comboBoxService.Location = new System.Drawing.Point(143, 21);
+            this.comboBoxService.Location = new System.Drawing.Point(68, 23);
             this.comboBoxService.Name = "comboBoxService";
-            this.comboBoxService.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxService.Size = new System.Drawing.Size(127, 21);
             this.comboBoxService.TabIndex = 2;
             // 
             // textBoxCell
             // 
             this.textBoxCell.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCell.Location = new System.Drawing.Point(23, 22);
+            this.textBoxCell.Location = new System.Drawing.Point(202, 23);
             this.textBoxCell.Name = "textBoxCell";
-            this.textBoxCell.Size = new System.Drawing.Size(93, 20);
+            this.textBoxCell.Size = new System.Drawing.Size(86, 20);
             this.textBoxCell.TabIndex = 4;
             this.textBoxCell.Text = "1235551212";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxSendToEmail);
+            this.groupBox1.Controls.Add(this.radioButtonEmail);
+            this.groupBox1.Controls.Add(this.radioButtonText);
             this.groupBox1.Controls.Add(this.comboBoxService);
             this.groupBox1.Controls.Add(this.textBoxCell);
-            this.groupBox1.Location = new System.Drawing.Point(19, 159);
+            this.groupBox1.Location = new System.Drawing.Point(19, 160);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 56);
+            this.groupBox1.Size = new System.Drawing.Size(301, 85);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "10-Digit Cell Number and Provider";
+            this.groupBox1.Text = "Send-To";
+            // 
+            // textBoxSendToEmail
+            // 
+            this.textBoxSendToEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxSendToEmail.Location = new System.Drawing.Point(67, 55);
+            this.textBoxSendToEmail.Name = "textBoxSendToEmail";
+            this.textBoxSendToEmail.Size = new System.Drawing.Size(220, 20);
+            this.textBoxSendToEmail.TabIndex = 8;
+            this.textBoxSendToEmail.Text = "sendto@email.com";
+            // 
+            // radioButtonEmail
+            // 
+            this.radioButtonEmail.AutoSize = true;
+            this.radioButtonEmail.Location = new System.Drawing.Point(14, 56);
+            this.radioButtonEmail.Name = "radioButtonEmail";
+            this.radioButtonEmail.Size = new System.Drawing.Size(50, 17);
+            this.radioButtonEmail.TabIndex = 6;
+            this.radioButtonEmail.TabStop = true;
+            this.radioButtonEmail.Text = "Email";
+            this.radioButtonEmail.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonText
+            // 
+            this.radioButtonText.AutoSize = true;
+            this.radioButtonText.Location = new System.Drawing.Point(14, 26);
+            this.radioButtonText.Name = "radioButtonText";
+            this.radioButtonText.Size = new System.Drawing.Size(46, 17);
+            this.radioButtonText.TabIndex = 5;
+            this.radioButtonText.TabStop = true;
+            this.radioButtonText.Text = "Text";
+            this.radioButtonText.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -163,14 +200,14 @@
             this.textBoxPass.Size = new System.Drawing.Size(128, 20);
             this.textBoxPass.TabIndex = 1;
             // 
-            // textBoxAccount
+            // textBoxSMTPEmail
             // 
-            this.textBoxAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxAccount.Location = new System.Drawing.Point(68, 16);
-            this.textBoxAccount.Name = "textBoxAccount";
-            this.textBoxAccount.Size = new System.Drawing.Size(220, 20);
-            this.textBoxAccount.TabIndex = 0;
-            this.textBoxAccount.Text = "myaccount@gmail.com";
+            this.textBoxSMTPEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxSMTPEmail.Location = new System.Drawing.Point(68, 16);
+            this.textBoxSMTPEmail.Name = "textBoxSMTPEmail";
+            this.textBoxSMTPEmail.Size = new System.Drawing.Size(220, 20);
+            this.textBoxSMTPEmail.TabIndex = 0;
+            this.textBoxSMTPEmail.Text = "myaccount@gmail.com";
             // 
             // textBoxFiltersExclude
             // 
@@ -178,7 +215,7 @@
             this.textBoxFiltersExclude.Location = new System.Drawing.Point(182, 28);
             this.textBoxFiltersExclude.Multiline = true;
             this.textBoxFiltersExclude.Name = "textBoxFiltersExclude";
-            this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 140);
+            this.textBoxFiltersExclude.Size = new System.Drawing.Size(143, 174);
             this.textBoxFiltersExclude.TabIndex = 7;
             this.textBoxFiltersExclude.TextChanged += new System.EventHandler(this.textBoxFiltersExclude_TextChanged);
             // 
@@ -190,7 +227,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(346, 247);
+            this.tabControl.Size = new System.Drawing.Size(346, 277);
             this.tabControl.TabIndex = 8;
             // 
             // tabPageFilters
@@ -203,7 +240,7 @@
             this.tabPageFilters.Location = new System.Drawing.Point(4, 22);
             this.tabPageFilters.Name = "tabPageFilters";
             this.tabPageFilters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFilters.Size = new System.Drawing.Size(338, 221);
+            this.tabPageFilters.Size = new System.Drawing.Size(338, 251);
             this.tabPageFilters.TabIndex = 0;
             this.tabPageFilters.Text = "Filters";
             this.tabPageFilters.UseVisualStyleBackColor = true;
@@ -236,21 +273,10 @@
             this.tabPageConfig.Location = new System.Drawing.Point(4, 22);
             this.tabPageConfig.Name = "tabPageConfig";
             this.tabPageConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConfig.Size = new System.Drawing.Size(338, 221);
+            this.tabPageConfig.Size = new System.Drawing.Size(338, 251);
             this.tabPageConfig.TabIndex = 1;
             this.tabPageConfig.Text = "Config";
             this.tabPageConfig.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBoxEnabled);
-            this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
-            this.groupBox2.Location = new System.Drawing.Point(19, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(203, 42);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Texts";
             // 
             // checkBoxPlaySound
             // 
@@ -262,6 +288,17 @@
             this.checkBoxPlaySound.TabIndex = 10;
             this.checkBoxPlaySound.Text = "Enabled";
             this.checkBoxPlaySound.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBoxEnabled);
+            this.groupBox2.Controls.Add(this.checkBoxStopNotifications);
+            this.groupBox2.Location = new System.Drawing.Point(19, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(203, 42);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Transmit";
             // 
             // checkBoxEnabled
             // 
@@ -292,7 +329,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.textBoxPort);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBoxAccount);
+            this.groupBox3.Controls.Add(this.textBoxSMTPEmail);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.textBoxPass);
             this.groupBox3.Controls.Add(this.label1);
@@ -302,7 +339,7 @@
             this.groupBox3.Size = new System.Drawing.Size(301, 100);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Email";
+            this.groupBox3.Text = "Outgoing Email";
             // 
             // label4
             // 
@@ -328,7 +365,7 @@
             this.tabPageSent.Controls.Add(this.listViewSent);
             this.tabPageSent.Location = new System.Drawing.Point(4, 22);
             this.tabPageSent.Name = "tabPageSent";
-            this.tabPageSent.Size = new System.Drawing.Size(338, 221);
+            this.tabPageSent.Size = new System.Drawing.Size(338, 251);
             this.tabPageSent.TabIndex = 2;
             this.tabPageSent.Text = "Processed";
             this.tabPageSent.UseVisualStyleBackColor = true;
@@ -336,7 +373,7 @@
             // buttonClear
             // 
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClear.Location = new System.Drawing.Point(18, 185);
+            this.buttonClear.Location = new System.Drawing.Point(18, 214);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(305, 23);
             this.buttonClear.TabIndex = 11;
@@ -349,14 +386,14 @@
             this.listViewSent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listViewSent.Location = new System.Drawing.Point(18, 20);
             this.listViewSent.Name = "listViewSent";
-            this.listViewSent.Size = new System.Drawing.Size(305, 145);
+            this.listViewSent.Size = new System.Drawing.Size(305, 175);
             this.listViewSent.TabIndex = 0;
             this.listViewSent.UseCompatibleStateImageBehavior = false;
             // 
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(12, 262);
+            this.labelStatus.Location = new System.Drawing.Point(12, 292);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(40, 13);
             this.labelStatus.TabIndex = 9;
@@ -365,7 +402,7 @@
             // labelProcessed
             // 
             this.labelProcessed.AutoSize = true;
-            this.labelProcessed.Location = new System.Drawing.Point(287, 262);
+            this.labelProcessed.Location = new System.Drawing.Point(287, 292);
             this.labelProcessed.Name = "labelProcessed";
             this.labelProcessed.Size = new System.Drawing.Size(60, 13);
             this.labelProcessed.TabIndex = 10;
@@ -384,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 278);
+            this.ClientSize = new System.Drawing.Size(370, 308);
             this.Controls.Add(this.labelProcessed);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.tabControl);
@@ -419,7 +456,7 @@
         private System.Windows.Forms.TextBox textBoxCell;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBoxPass;
-        private System.Windows.Forms.TextBox textBoxAccount;
+        private System.Windows.Forms.TextBox textBoxSMTPEmail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -442,6 +479,9 @@
         private System.Windows.Forms.CheckBox checkBoxStopNotifications;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.CheckBox checkBoxPlaySound;
+        private System.Windows.Forms.TextBox textBoxSendToEmail;
+        private System.Windows.Forms.RadioButton radioButtonEmail;
+        private System.Windows.Forms.RadioButton radioButtonText;
         private System.Windows.Forms.GroupBox groupBox4;
 
     }

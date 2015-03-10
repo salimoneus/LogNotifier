@@ -91,6 +91,8 @@ namespace LogNotifier
 
             checkBoxEnabled.Checked = true;
             checkBoxStopNotifications.Checked = true;
+
+            radioButtonText.Checked = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -165,11 +167,12 @@ namespace LogNotifier
             }
 
             if (checkBoxEnabled.Checked &&
-                (!CheckTextBox(ref textBoxAccount) ||
+                (!CheckTextBox(ref textBoxSMTPEmail) ||
                 !CheckTextBox(ref textBoxPort) ||
                 !CheckTextBox(ref textBoxServer) ||
                 !CheckTextBox(ref textBoxPass) ||
-                !CheckTextBox(ref textBoxCell, true, 10)))
+                (radioButtonText.Checked && !CheckTextBox(ref textBoxCell, true, 10)) ||
+                (radioButtonEmail.Checked && !CheckTextBox(ref textBoxSendToEmail)) ))
             {
                 tabControl.SelectTab("tabPageConfig");
                 return false;
@@ -198,8 +201,6 @@ namespace LogNotifier
                         s = sr.ReadLine();
                         if (s != null)
                         {
-                            //Debug.WriteLine(s);
-                            
                             foreach (string search in searchLinesInclude)
                             {
                                 if (s.Contains(search) && !searchLinesExclude.Any(s.Contains))
@@ -261,9 +262,17 @@ namespace LogNotifier
 
             this.Invoke((MethodInvoker)delegate()
             {
-                address = m_services[comboBoxService.SelectedItem.ToString()];
-                address = address.Replace("cellnumber", textBoxCell.Text);
-                fromAddress = new MailAddress(textBoxAccount.Text, "LogNotifier");
+                if (radioButtonText.Checked)
+                {
+                    address = m_services[comboBoxService.SelectedItem.ToString()];
+                    address = address.Replace("cellnumber", textBoxCell.Text);
+                }
+                else
+                {
+                    address = textBoxSendToEmail.Text;
+                }
+
+                fromAddress = new MailAddress(textBoxSMTPEmail.Text, "LogNotifier");
                 fromPassword = textBoxPass.Text;
                 port = Convert.ToInt16(textBoxPort.Text);
                 host = textBoxServer.Text;
@@ -426,12 +435,16 @@ namespace LogNotifier
             textBoxFiltersInclude.Text = String.Join(Environment.NewLine, dataSet.IncludeItems);
             textBoxFiltersExclude.Text = String.Join(Environment.NewLine, dataSet.ExcludeItems);
 
-            textBoxAccount.Text = dataSet.EmailAccount;
+            textBoxSMTPEmail.Text = dataSet.EmailAccount;
             textBoxServer.Text = dataSet.EmailServer;
             textBoxPort.Text = dataSet.EmailPort;
 
             textBoxCell.Text = dataSet.CellNumber;
             comboBoxService.SelectedItem = dataSet.CellProvider;
+            textBoxSendToEmail.Text = dataSet.SendToEmailAccount;
+
+            radioButtonText.Checked = dataSet.SendText;
+            radioButtonEmail.Checked = !dataSet.SendText;
 
             checkBoxEnabled.Checked = dataSet.Enabled;
             checkBoxStopNotifications.Checked = dataSet.StopNotifications;
@@ -445,13 +458,15 @@ namespace LogNotifier
             dataSet.IncludeItems = Enumerable.ToList(GetTextBoxStringAsArray(ref textBoxFiltersInclude));
             dataSet.ExcludeItems = Enumerable.ToList(GetTextBoxStringAsArray(ref textBoxFiltersExclude));
 
-            dataSet.EmailAccount = textBoxAccount.Text;
+            dataSet.EmailAccount = textBoxSMTPEmail.Text;
             dataSet.EmailServer = textBoxServer.Text;
             dataSet.EmailPort = textBoxPort.Text;
 
             dataSet.CellNumber = textBoxCell.Text;
             dataSet.CellProvider = comboBoxService.SelectedItem.ToString();
+            dataSet.SendToEmailAccount = textBoxSendToEmail.Text;
 
+            dataSet.SendText = radioButtonText.Checked;
             dataSet.Enabled = checkBoxEnabled.Checked;
             dataSet.StopNotifications = checkBoxStopNotifications.Checked;
             dataSet.Playsound = checkBoxPlaySound.Checked;

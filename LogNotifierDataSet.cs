@@ -57,6 +57,13 @@ namespace LogNotifier
             set { cellProvider = value; }
         }
 
+        protected string sendToEmailAccount;
+        public string SendToEmailAccount
+        {
+            get { return sendToEmailAccount; }
+            set { sendToEmailAccount = value; }
+        }
+
         protected bool enabled = true;
         public bool Enabled
         {
@@ -76,6 +83,13 @@ namespace LogNotifier
         {
             get { return playSound; }
             set { playSound = value; }
+        }
+
+        protected bool sendText = true;
+        public bool SendText
+        {
+            get { return sendText; }
+            set { sendText = value; }
         }
     }
 }
